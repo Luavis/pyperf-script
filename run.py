@@ -8,6 +8,8 @@ import sys
 
 
 pyenv_path = "/root/.pyenv/versions"
+file_dirname = path.dirname(path.realpath(__file__))
+
 
 def main():
     parser = argparse.ArgumentParser(description='Set arguments')
@@ -26,7 +28,7 @@ def main():
 
     for ver in vers:
         python_path = path.join(pyenv_path, ver, 'bin', 'python')
-        command = python_path + ' ./worker.py '  + path.join(dirname, target)
+        command = ' '.join([python_path,  path.join(file_dirname, 'worker.py'), path.join(dirname, target)])
 
         proc = subprocess.Popen(
                 [command],
