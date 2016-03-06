@@ -7,7 +7,7 @@ import json
 import sys
 
 
-pyenv_path = "/root/.pyenv/versions"
+pyenv_path = path.expanduser("~/.pyenv/versions")
 file_dirname = path.dirname(path.realpath(__file__))
 
 
@@ -36,7 +36,7 @@ def main():
                 stderr=subprocess.PIPE,
                 shell=True)
         (out, err) = proc.communicate()
-        if err != None:
+        if len(err) != 0:
             retval['status'] = 'fail'
             retval['reason'] = err.decode('utf-8')
             break
