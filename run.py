@@ -7,7 +7,7 @@ import json
 import sys
 
 
-pyenv_path = "/Users/Luavis/.pyenv/versions"
+pyenv_path = "/root/.pyenv/versions"
 
 def main():
     parser = argparse.ArgumentParser(description='Set arguments')
